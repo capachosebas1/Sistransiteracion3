@@ -45,7 +45,7 @@ public class SQLTabla_Detalle_Reserva {
 	 */
 	public long adicionarDetalleServicio(PersistenceManager pm, long idBebedorID_Detalle_Reserva, long ID_Reserva,long ID_Servicio, Date Fecha_Inicio, Date Fecha_FIN, long Valor) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaDetalleServicio () + "(idBebedorID_Detalle_Reserva,  ID_Reserva,ID_Servicio, Fecha_Inicio,  Fecha_FIN,  Valor) values (?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaDetalle_reserva() + "(idBebedorID_Detalle_Reserva,  ID_Reserva,ID_Servicio, Fecha_Inicio,  Fecha_FIN,  Valor) values (?, ?)");
         q.setParameters(idBebedorID_Detalle_Reserva,  ID_Reserva,ID_Servicio, Fecha_Inicio,  Fecha_FIN,  Valor);
         return (long) q.executeUnique();
 	}

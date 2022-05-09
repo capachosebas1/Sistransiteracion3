@@ -24,18 +24,19 @@ public class SQLDetalle_reserva {
 	}
 	public List<Reserva> darDetalle_ReservasPorId_ReservayRango (PersistenceManager pm, long reserva, Date inicial , Date fin)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.ID_RESERVA= ? AND  tc.FECHA_INICIO => ? AND tc.FECHA_INICIO <= ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaDetalle_reserva()+ " tc WHERE tc.ID_RESERVA= ? AND  tc.FECHA_INICIO => ? AND tc.FECHA_INICIO <= ?");
 		q.setResultClass(Reserva.class);
 		q.setParameters(reserva,inicial,fin);
 		
 		return (List<Reserva>) q.executeList();
 	}
-	public List<Reserva> darReservaPorIdyRango (PersistenceManager pm, long id)
+	public List<Reserva> darDetalle_ReservasPorId_ServicioyRango (PersistenceManager pm, long servicio, Date inicial , Date fin)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.ID_SERVICIO= ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaDetalle_reserva()+ " tc WHERE tc.ID_SERVICIO= ? AND  tc.FECHA_INICIO => ? AND tc.FECHA_INICIO <= ?");
 		q.setResultClass(Reserva.class);
-		q.setParameters(id);
+		q.setParameters(servicio,inicial,fin);
 		
 		return (List<Reserva>) q.executeList();
 	}
+	
 }

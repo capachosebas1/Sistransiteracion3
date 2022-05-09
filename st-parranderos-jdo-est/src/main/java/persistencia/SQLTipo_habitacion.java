@@ -22,9 +22,9 @@ public class SQLTipo_habitacion {
 	{
 		this.pp = pp;
 	}
-	public List<Tipo_habitacion> darTipo_porid (PersistenceManager pm, long id)
+	public List<Tipo_habitacion> darTipo_porid (PersistenceManager pm, String id)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.ID_TIPO_HABITACION= ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaHabitacion()+ " tc WHERE tc.ID_TIPO_HABITACION= ?");
 		q.setResultClass(Tipo_habitacion.class);
 		q.setParameters(id);
 		

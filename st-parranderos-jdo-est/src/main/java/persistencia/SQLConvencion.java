@@ -24,7 +24,7 @@ public SQLConvencion (PersistenciaHotelAndes pp)
 
 public long eliminarConvencionPorId (PersistenceManager pm, long nombre)
 {
-    Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaConvencion () + " WHERE nombre = ?");
+    Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darSeqConvencion() + " WHERE nombre = ?");
     q.setParameters(nombre);
     return (long) q.executeUnique();
 }
@@ -32,4 +32,3 @@ public long eliminarConvencionPorId (PersistenceManager pm, long nombre)
 	
 }
 
-}

@@ -1,3 +1,4 @@
+package persistencia;
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Universidad	de	los	Andes	(Bogotá	- Colombia)
  * Departamento	de	Ingeniería	de	Sistemas	y	Computación
@@ -15,6 +16,7 @@
 
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
@@ -339,9 +341,9 @@ public class PersistenciaHotelAndes
 		}
 		return resp;
 	}
-<<<<<<< Updated upstream
-}
-=======
+
+
+
 	public long req13(long idconvencion) {
 		
 			PersistenceManager pm = pmf.getPersistenceManager();
@@ -409,6 +411,10 @@ public class PersistenciaHotelAndes
         }
 		
 	}
+	public long RFC5(long id_usuario,Date inicio, Date fin) {
+		List<Reserva> res = sqlReserva.darReservasPorId_Usuario(pmf.getPersistenceManager(), id_usuario);
+		return id_usuario;
+		
+	}
 }
 
->>>>>>> Stashed changes

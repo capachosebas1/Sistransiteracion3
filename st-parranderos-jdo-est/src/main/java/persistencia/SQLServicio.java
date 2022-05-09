@@ -25,13 +25,13 @@ public SQLServicio (PersistenciaHotelAndes pp)
 }
 public long actulizarEstado (PersistenceManager pm, long id)
 {
-    Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaBar () + " SET ESTADO_SERVICIO = 'A'  WHERE ID_SERVICIO = ?");
+    Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaServicio()  + " SET ESTADO_SERVICIO = 'A'  WHERE ID_SERVICIO = ?");
     q.setParameters(id);
     return (long) q.executeUnique();
 }
 public List<Reserva> darServicioPorId (PersistenceManager pm, long id)
 {
-	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.ID_SERVICIO= ?");
+	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaServicio()+ " tc WHERE tc.ID_SERVICIO= ?");
 	q.setResultClass(Reserva.class);
 	q.setParameters(id);
 	

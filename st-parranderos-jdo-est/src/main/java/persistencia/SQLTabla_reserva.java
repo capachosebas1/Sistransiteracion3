@@ -45,7 +45,7 @@ public class SQLTabla_reserva {
 	 */
 	public long CheckOut (PersistenceManager pm, long ID_cliente, long ID_Reserva , Date  Fecha_check_out) 
 	{
-	    Query q = pm.newQuery(SQL, "UPDATE " + pp.darTabla_reserva () + " SET Fecha_check_out = ? WHERE ID_cliente = ? AND ID_Reserva = ?");
+	    Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaTabla_reserva() + " SET Fecha_check_out = ? WHERE ID_cliente = ? AND ID_Reserva = ?");
 	    q.setParameters(ID_cliente,  ID_Reserva ,  Fecha_check_out);
 	    return (long) q.executeUnique();            
 	}

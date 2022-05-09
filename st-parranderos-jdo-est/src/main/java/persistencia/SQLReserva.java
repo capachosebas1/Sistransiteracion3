@@ -25,7 +25,7 @@ public SQLReserva (PersistenciaHotelAndes pp)
 }
 public List<Reserva> darReservasPorId_Convencion (PersistenceManager pm, long convenio)
 {
-	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.id_convensiom= ?");
+	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaReserva()+ " tc WHERE tc.id_convensiom= ?");
 	q.setResultClass(Reserva.class);
 	q.setParameters(convenio);
 	
@@ -34,7 +34,7 @@ public List<Reserva> darReservasPorId_Convencion (PersistenceManager pm, long co
 
 public List<Reserva> darReservasPorId_Usuario (PersistenceManager pm, long usuario)
 {
-	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.ID_CLIENTE= ?");
+	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaReserva()+ " tc WHERE tc.ID_CLIENTE= ?");
 	q.setResultClass(Reserva.class);
 	q.setParameters(usuario);
 	
@@ -42,7 +42,7 @@ public List<Reserva> darReservasPorId_Usuario (PersistenceManager pm, long usuar
 }
 public List<Reserva> darReservasPorId_HabitacionyRango (PersistenceManager pm, long habitacion,Date inicial, Date fin)
 {
-	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ "  WHERE ID_HABITACION= ? AND FECHA_CHECK_IN >= ? AND FECHA_CHECK_IN <= ?");
+	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaReserva()+ "  WHERE ID_HABITACION= ? AND FECHA_CHECK_IN >= ? AND FECHA_CHECK_IN <= ?");
 	q.setResultClass(Reserva.class);
 	q.setParameters(habitacion,inicial,fin);
 	

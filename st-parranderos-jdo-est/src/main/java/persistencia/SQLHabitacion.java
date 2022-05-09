@@ -22,7 +22,7 @@ public class SQLHabitacion {
 	}
 	public List<Habitacion> darHabitacionPorId (PersistenceManager pm, long id)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.ID_HABITACION= ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaHabitacion()+ " tc WHERE tc.ID_HABITACION= ?");
 		q.setResultClass(Habitacion.class);
 		q.setParameters(id);
 		
@@ -30,7 +30,7 @@ public class SQLHabitacion {
 	}
 	public List<Habitacion> darHabitacionPortipo (PersistenceManager pm, String tipo)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.ID_HABITACION= ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaHabitacion()+ " tc WHERE tc.ID_HABITACION= ?");
 		q.setResultClass(Habitacion.class);
 		q.setParameters(tipo);
 		
@@ -38,7 +38,7 @@ public class SQLHabitacion {
 	}
 	public long actulizarDisponibilidad (PersistenceManager pm, long id)
 	{
-	    Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaBar () + " SET DISPONIBILIDAD = 'A'  WHERE ID_HABITACION = ?");
+	    Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaHabitacion() + " SET DISPONIBILIDAD = 'A'  WHERE ID_HABITACION = ?");
 	    q.setParameters(id);
 	    return (long) q.executeUnique();
 	}
