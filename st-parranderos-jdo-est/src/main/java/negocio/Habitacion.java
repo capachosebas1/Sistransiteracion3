@@ -2,7 +2,7 @@ package negocio;
 
 public class Habitacion {
 	private long id;
-	private long tipo;
+	private String tipo;
 	private long numero;
 	private String disponibilidad;
 	private long valor;
@@ -11,12 +11,12 @@ public class Habitacion {
 		this.setDisponibilidad("");
 		this.setId(0);
 		this.setNumero(0);
-		this.setTipo(0);
+		this.setTipo("");
 		this.setValor(0);
 	
 		
 	}
-	public Habitacion(String dis, long id, long numero, long tipo, long valor) {
+	public Habitacion(String dis, long id, long numero, String tipo, long valor) {
 		this.setDisponibilidad(dis);
 		this.setId(id);
 		this.setNumero(numero);
@@ -40,13 +40,13 @@ public class Habitacion {
 	/**
 	 * @return the tipo
 	 */
-	public long getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 	/**
 	 * @param tipo the tipo to set
 	 */
-	public void setTipo(long tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	/**

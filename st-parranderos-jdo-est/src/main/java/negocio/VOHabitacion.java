@@ -2,7 +2,7 @@ package negocio;
 
 public interface VOHabitacion {
 	public long getId();
-	public long getTipo();
+	public String getTipo();
 	public long getNumero();
 	public String getDisponibilidad();
 	public long getValor();
