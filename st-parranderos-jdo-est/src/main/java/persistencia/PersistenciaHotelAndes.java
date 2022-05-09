@@ -339,9 +339,6 @@ public class PersistenciaHotelAndes
 		}
 		return resp;
 	}
-<<<<<<< Updated upstream
-}
-=======
 	public long req13(long idconvencion) {
 		
 			PersistenceManager pm = pmf.getPersistenceManager();
@@ -411,4 +408,3 @@ public class PersistenciaHotelAndes
 	}
 }
 
->>>>>>> Stashed changes
