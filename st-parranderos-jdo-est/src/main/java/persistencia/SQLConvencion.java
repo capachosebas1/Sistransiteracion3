@@ -22,7 +22,7 @@ public SQLConvencion (PersistenciaHotelAndes pp)
 	this.pp = pp;
 }
 
-public long eliminarConvencionPorNombre (PersistenceManager pm, String nombre)
+public long eliminarConvencionPorId (PersistenceManager pm, long nombre)
 {
     Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaConvencion () + " WHERE nombre = ?");
     q.setParameters(nombre);

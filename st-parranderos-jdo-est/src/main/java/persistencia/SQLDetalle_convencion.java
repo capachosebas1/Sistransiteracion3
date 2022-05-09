@@ -19,7 +19,7 @@ public class SQLDetalle_convencion {
 	{
 		this.pp = pp;
 	}
-	public List<Detalle_convencion> darConvencion (PersistenceManager pm, long convenio)
+	public List<Detalle_convencion> darDetallesPorConvencion (PersistenceManager pm, long convenio)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.id_convencio= ?");
 		q.setResultClass(Detalle_convencion.class);

@@ -29,6 +29,9 @@ import org.apache.log4j.Logger;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import negocio.Detalle_convencion;
+import negocio.Reserva;
 import uniandes.isis2304.parranderos.negocio.Bar;
 import uniandes.isis2304.parranderos.negocio.Bebedor;
 import uniandes.isis2304.parranderos.negocio.Bebida;
@@ -336,4 +339,76 @@ public class PersistenciaHotelAndes
 		}
 		return resp;
 	}
+<<<<<<< Updated upstream
 }
+=======
+	public long req13(long idconvencion) {
+		
+			PersistenceManager pm = pmf.getPersistenceManager();
+	        Transaction tx=pm.currentTransaction();
+	        try
+	        {
+	            tx.begin();
+	            long resp = sqlConvencion.eliminarConvencionPorId(pm, idconvencion);
+	            tx.commit();
+
+	            return resp;
+	        }
+	        catch (Exception e)
+	        {
+//	        	e.printStackTrace();
+	        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+	            return -1;
+	        }
+	        finally
+	        {
+	            if (tx.isActive())
+	            {
+	                tx.rollback();
+	            }
+	            pm.close();
+	        }
+		}
+	public long req14(long idConvencion) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp2=0;
+            List<Reserva> listaR= sqlReserva.darReservasPorId_Convencion(pm, idConvencion);
+            for (int i=0; i < listaR.size(); i++) {
+            	long idhabitacion = listaR.get(i).getId_habitacion();
+            	long resp1 = sqlHabitacion.actulizarDisponibilidad(pm, idhabitacion);
+            	resp2+=resp1;
+            }
+            List<Detalle_convencion> listaD= sqlDetalle_convencion.darDetallesPorConvencion(pm, idConvencion);
+            for (int i=0; i < listaD.size(); i++) {
+            	long idServicio = listaD.get(i).getId_servicio();
+            	long resp1 = sqlServicio.actulizarEstado(pm, idServicio);
+            	resp2+=resp1;
+            }
+           
+            tx.commit();
+
+            return resp2;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+		
+	}
+}
+
+>>>>>>> Stashed changes
