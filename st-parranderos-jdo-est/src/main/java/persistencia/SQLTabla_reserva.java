@@ -6,7 +6,7 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-public class SQLTabla_Detalle_Reserva {
+public class SQLTabla_reserva {
     /* ****************************************************************
 	 * 			Constantes
 	 *****************************************************************/
@@ -31,7 +31,7 @@ public class SQLTabla_Detalle_Reserva {
 	 * Constructor
 	 * @param pp - El Manejador de persistencia de la aplicación
 	 */
-	public SQLDetalle_Reserva (PersistenciaHotelAndes pp)
+	public SQLTabla_reserva (PersistenciaHotelAndes pp)
 	{
 		this.pp = pp;
 	}
@@ -43,11 +43,11 @@ public class SQLTabla_Detalle_Reserva {
 	 * @param idBebida - El identificador de la bebida
 	 * @return EL número de tuplas insertadas
 	 */
-	public long adicionarDetalleServicio(PersistenceManager pm, long idBebedorID_Detalle_Reserva, long ID_Reserva,long ID_Servicio, Date Fecha_Inicio, Date Fecha_FIN, long Valor) 
+	public long CheckOut (PersistenceManager pm, long ID_cliente, long ID_Reserva , Date  Fecha_check_out) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaDetalleServicio () + "(idBebedorID_Detalle_Reserva,  ID_Reserva,ID_Servicio, Fecha_Inicio,  Fecha_FIN,  Valor) values (?, ?)");
-        q.setParameters(idBebedorID_Detalle_Reserva,  ID_Reserva,ID_Servicio, Fecha_Inicio,  Fecha_FIN,  Valor);
-        return (long) q.executeUnique();
+	    Query q = pm.newQuery(SQL, "UPDATE " + pp.darTabla_reserva () + " SET Fecha_check_out = ? WHERE ID_cliente = ? AND ID_Reserva = ?");
+	    q.setParameters(ID_cliente,  ID_Reserva ,  Fecha_check_out);
+	    return (long) q.executeUnique();            
 	}
 
 
