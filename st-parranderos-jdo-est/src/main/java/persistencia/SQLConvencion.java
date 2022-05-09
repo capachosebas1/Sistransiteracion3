@@ -2,7 +2,31 @@ package persistencia;
 
 import java.util.List;
 
+
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import persistencia.*;
+
+
+
+
+
+class SQLConvencion
+{
+private final static String SQL = PersistenciaHotelAndes.SQL;
+
+private PersistenciaHotelAndes pp;
+
+public SQLConvencion (PersistenciaHotelAndes pp)
+{
+	this.pp = pp;
+}
+
+public long eliminarCOnvencionPorNombre (PersistenceManager pm, String nombre)
+{
+    Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaConvencion () + " WHERE nombre = ?");
+    q.setParameters(nombre);
+    return (long) q.executeUnique();
+}
+
+}
