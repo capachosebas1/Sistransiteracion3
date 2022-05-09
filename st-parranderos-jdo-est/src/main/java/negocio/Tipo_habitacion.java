@@ -2,20 +2,20 @@ package negocio;
 
 public class Tipo_habitacion implements VOTipo_habitacion {
 
-	private long id;
+	private String id;
 	private String nombre;
 	private String descripcion;
 	private long numero_camas;
 	
 	public Tipo_habitacion() {
 		this.setDescripcion("");
-		this.setId(0);
+		this.setId("");
 		this.setNombre("");
 		this.setNumero_camas(0);
 		
 	}
 	
-	public Tipo_habitacion(String des, long id, String nombre, long numero_camas) {
+	public Tipo_habitacion(String des, String id, String nombre, long numero_camas) {
 		this.setDescripcion(des);
 		this.setId(id);
 		this.setNombre(nombre);
@@ -26,14 +26,14 @@ public class Tipo_habitacion implements VOTipo_habitacion {
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

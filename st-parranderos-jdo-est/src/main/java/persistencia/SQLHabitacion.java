@@ -28,6 +28,14 @@ public class SQLHabitacion {
 		
 		return (List<Habitacion>) q.executeList();
 	}
+	public List<Habitacion> darHabitacionPortipo (PersistenceManager pm, String tipo)
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.ID_HABITACION= ?");
+		q.setResultClass(Habitacion.class);
+		q.setParameters(tipo);
+		
+		return (List<Habitacion>) q.executeList();
+	}
 	public long actulizarDisponibilidad (PersistenceManager pm, long id)
 	{
 	    Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaBar () + " SET DISPONIBILIDAD = 'A'  WHERE ID_HABITACION = ?");
