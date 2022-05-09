@@ -7,6 +7,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 import negocio.Reserva;
+import negocio.Servicio;
 
 
 
@@ -29,12 +30,12 @@ public long actulizarEstado (PersistenceManager pm, long id)
     q.setParameters(id);
     return (long) q.executeUnique();
 }
-public List<Reserva> darServicioPorId (PersistenceManager pm, long id)
+public List<Servicio> darServicioPorId (PersistenceManager pm, long id)
 {
 	Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaServicio()+ " tc WHERE tc.ID_SERVICIO= ?");
 	q.setResultClass(Reserva.class);
 	q.setParameters(id);
 	
-	return (List<Reserva>) q.executeList();
+	return (List<Servicio>) q.executeList();
 }
 }

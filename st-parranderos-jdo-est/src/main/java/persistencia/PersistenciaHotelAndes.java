@@ -19,6 +19,7 @@ package persistencia;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,7 +35,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import negocio.Detalle_convencion;
+import negocio.Detalle_reserva;
 import negocio.Reserva;
+import negocio.Servicio;
 import uniandes.isis2304.parranderos.negocio.Bar;
 import uniandes.isis2304.parranderos.negocio.Bebedor;
 import uniandes.isis2304.parranderos.negocio.Bebida;
@@ -417,9 +420,21 @@ public class PersistenciaHotelAndes
         }
 		
 	}
-	public long RFC5(long id_usuario,Date inicio, Date fin) {
+	public List<Servicio> RFC5(long id_usuario,Date inicio, Date fin) {
 		List<Reserva> res = sqlReserva.darReservasPorId_Usuario(pmf.getPersistenceManager(), id_usuario);
-		return id_usuario;
+		List<Detalle_reserva> detalles= new ArrayList<Detalle_reserva>();
+		for(int i=0; i<res.size();i++) {
+		List<Detalle_reserva> lista = sqlDetalle_reserva.darDetalle_ReservasPorId_ReservayRango(pmf.getPersistenceManager(), id_usuario, inicio, fin);
+		for(int r=0; r<lista.size();r++) {
+			detalles.add(lista.get(r));
+		}
+		
+		}
+		List<Servicio> lista1= new ArrayList<Servicio>();
+		for(int a=0; a<detalles.size();a++) {
+			lista1 = sqlServicio.darServicioPorId(pmf.getPersistenceManager(),detalles.get(a).getId_servicio());
+		}
+		return lista1;
 		
 	}
 }
