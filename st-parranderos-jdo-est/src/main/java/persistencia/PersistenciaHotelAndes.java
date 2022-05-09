@@ -224,20 +224,22 @@ public class PersistenciaHotelAndes
 	 */
 	private void crearClasesSQL ()
 	{
-		sqlTipoBebida = new SQLTipoBebida(this);
-		sqlBebida = new SQLBebida(this);
-		sqlBar = new SQLBar(this);
-		sqlBebedor = new SQLBebedor(this);
-		sqlGustan = new SQLGustan(this);
-		sqlSirven = new SQLSirven (this);
-		sqlVisitan = new SQLVisitan(this);		
+		sqlConvencion = new SQLConvencion(this);
+		sqlDetalle_convencion = new SQLDetalle_convencion(this);
+		sqlDetalle_reserva = new SQLDetalle_reserva(this);
+		sqlHabitacion = new SQLHabitacion(this);
+		sqlReserva = new SQLReserva(this);
+		sqlServicio = new SQLServicio (this);
+		sqlTabla_Detalle_Reserva = new SQLTabla_Detalle_Reserva(this);
+		sqlTabla_reserva = new SQLTabla_reserva(this);
+		sqlTipo_habitacion = new SQLTipo_habitacion(this);		
 		sqlUtil = new SQLUtil(this);
 	}
 
 	/**
 	 * @return La cadena de caracteres con el nombre del secuenciador de parranderos
 	 */
-	public String darSeqParranderos ()
+	public String darSeqConvencion ()
 	{
 		return tablas.get (0);
 	}
@@ -245,7 +247,7 @@ public class PersistenciaHotelAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de TipoBebida de parranderos
 	 */
-	public String darTablaTipoBebida ()
+	public String darTablaDetalle_convencion ()
 	{
 		return tablas.get (1);
 	}
@@ -253,7 +255,7 @@ public class PersistenciaHotelAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de Bebida de parranderos
 	 */
-	public String darTablaBebida ()
+	public String darTablaDetalle_reserva ()
 	{
 		return tablas.get (2);
 	}
@@ -261,7 +263,7 @@ public class PersistenciaHotelAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de Bar de parranderos
 	 */
-	public String darTablaBar ()
+	public String darTablaHabitacion ()
 	{
 		return tablas.get (3);
 	}
@@ -269,7 +271,7 @@ public class PersistenciaHotelAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de Bebedor de parranderos
 	 */
-	public String darTablaBebedor ()
+	public String darTablaReserva ()
 	{
 		return tablas.get (4);
 	}
@@ -277,7 +279,7 @@ public class PersistenciaHotelAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de Gustan de parranderos
 	 */
-	public String darTablaGustan ()
+	public String darTablaServicio ()
 	{
 		return tablas.get (5);
 	}
@@ -285,7 +287,7 @@ public class PersistenciaHotelAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de Sirven de parranderos
 	 */
-	public String darTablaSirven ()
+	public String darTablaTabla_Detalle_Reserva ()
 	{
 		return tablas.get (6);
 	}
@@ -293,9 +295,18 @@ public class PersistenciaHotelAndes
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla de Visitan de parranderos
 	 */
-	public String darTablaVisitan ()
+	public String darTablaTabla_reserva ()
 	{
 		return tablas.get (7);
+	}
+
+	public String darTablaTipo_habitacion ()
+	{
+		return tablas.get (8);
+	}
+	public String darsqlUtil ()
+	{
+		return tablas.get (9);
 	}
 	
 	/**
@@ -325,3 +336,4 @@ public class PersistenciaHotelAndes
 		}
 		return resp;
 	}
+}

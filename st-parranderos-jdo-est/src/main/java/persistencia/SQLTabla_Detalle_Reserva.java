@@ -31,7 +31,7 @@ public class SQLTabla_Detalle_Reserva {
 	 * Constructor
 	 * @param pp - El Manejador de persistencia de la aplicación
 	 */
-	public SQLDetalle_Reserva (PersistenciaHotelAndes pp)
+	public SQLTabla_Detalle_Reserva (PersistenciaHotelAndes pp)
 	{
 		this.pp = pp;
 	}
