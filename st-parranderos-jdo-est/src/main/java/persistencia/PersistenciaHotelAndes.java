@@ -1,3 +1,5 @@
+package persistencia;
+
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Universidad	de	los	Andes	(Bogotá	- Colombia)
  * Departamento	de	Ingeniería	de	Sistemas	y	Computación
@@ -239,12 +241,17 @@ public class PersistenciaHotelAndes
 		sqlUtil = new SQLUtil(this);
 	}
 
+	public String darSeqParranderos ()
+	{
+		return tablas.get (0);
+	}
+
 	/**
 	 * @return La cadena de caracteres con el nombre del secuenciador de parranderos
 	 */
-	public String darSeqConvencion ()
+	public String darTablaConvencion ()
 	{
-		return tablas.get (0);
+		return tablas.get (1);
 	}
 
 	/**
@@ -252,7 +259,7 @@ public class PersistenciaHotelAndes
 	 */
 	public String darTablaDetalle_convencion ()
 	{
-		return tablas.get (1);
+		return tablas.get (2);
 	}
 
 	/**
@@ -260,7 +267,7 @@ public class PersistenciaHotelAndes
 	 */
 	public String darTablaDetalle_reserva ()
 	{
-		return tablas.get (2);
+		return tablas.get (3);
 	}
 
 	/**
@@ -268,7 +275,7 @@ public class PersistenciaHotelAndes
 	 */
 	public String darTablaHabitacion ()
 	{
-		return tablas.get (3);
+		return tablas.get (4);
 	}
 
 	/**
@@ -276,7 +283,7 @@ public class PersistenciaHotelAndes
 	 */
 	public String darTablaReserva ()
 	{
-		return tablas.get (4);
+		return tablas.get (5);
 	}
 
 	/**
@@ -284,7 +291,7 @@ public class PersistenciaHotelAndes
 	 */
 	public String darTablaServicio ()
 	{
-		return tablas.get (5);
+		return tablas.get (6);
 	}
 
 	/**
@@ -292,7 +299,7 @@ public class PersistenciaHotelAndes
 	 */
 	public String darTablaTabla_Detalle_Reserva ()
 	{
-		return tablas.get (6);
+		return tablas.get (7);
 	}
 
 	/**
@@ -300,16 +307,16 @@ public class PersistenciaHotelAndes
 	 */
 	public String darTablaTabla_reserva ()
 	{
-		return tablas.get (7);
+		return tablas.get (8);
 	}
 
 	public String darTablaTipo_habitacion ()
 	{
-		return tablas.get (8);
+		return tablas.get (9);
 	}
 	public String darsqlUtil ()
 	{
-		return tablas.get (9);
+		return tablas.get (10);
 	}
 	
 	/**

@@ -21,7 +21,7 @@ public class SQLDetalle_convencion {
 	}
 	public List<Detalle_convencion> darDetallesPorConvencion (PersistenceManager pm, long convenio)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaBar()+ " tc WHERE tc.id_convencio= ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTabl+ " tc WHERE tc.id_convencio= ?");
 		q.setResultClass(Detalle_convencion.class);
 		q.setParameters(convenio);
 		
