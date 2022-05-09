@@ -141,13 +141,15 @@ public class PersistenciaHotelAndes
 		tablas = new LinkedList<String> ();
 		tablas.add ("HotelAndes_sequence");
 		tablas.add ("CLIENTE");
-		tablas.add ("CONVENCION");
-		tablas.add ("DETALLE_CONVENCION");
-		tablas.add ("DETALLE_RESERVA");
-		tablas.add ("HABITACION");
-		tablas.add ("ORDER");
-		tablas.add ("PERSON");
-		tablas.add ("RESERVA");
+		tablas.add ("TABLA_CONVENCION");
+		tablas.add ("TABLA_DETALLE_CONVENCION");
+		tablas.add ("TABLA_DETALLE_RESERVA");
+		tablas.add ("TABLA_HABITACION");
+		tablas.add ("ORDERS");
+		tablas.add ("PERSONS");
+		tablas.add ("TABLA_RESERVA");
+		tablas.add ("TABLA_SERVICIOS");
+		tablas.add ("TABLA_TIPO_HABITACION");
 }
 
 	/**
